@@ -4,54 +4,68 @@ import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 
-// ✅ All imports above, no code before
+pdfjs.GlobalWorkerOptions.workerSrc =
+  `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-const pdf = "/Sahil_Ahamad_Resume.pdf";
+const pdf = process.env.PUBLIC_URL + "/Sahilresume.pdf";
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [numPages, setNumPages] = useState(null);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
 
   return (
     <div>
-      <Container fluid className="resume-section">
+      <Container fluid className="resume-section" style={{ paddingTop: "120px" }}>
         <Particle />
 
-        <Row style={{ justifyContent: "center", position: "relative", marginBottom: "20px" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
+        {/* Top Button */}
+        <Row className="justify-content-center mb-4">
+          <Button variant="primary" href={pdf} target="_blank">
             <AiOutlineDownload />
-            &nbsp;Download Sahil's Resume
+            &nbsp;Download Resume
           </Button>
         </Row>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
+        {/* PDF Centered Properly */}
+        <Row className="justify-content-center">
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Document
+              file={pdf}
+              onLoadSuccess={onDocumentLoadSuccess}
+              onLoadError={(error) => console.error(error)}
+              loading="Loading Resume..."
+            >
+              {numPages &&
+                Array.from(new Array(numPages), (el, index) => (
+                  <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    scale={width > 786 ? 1.2 : 0.6}
+                  />
+                ))}
+            </Document>
+          </div>
         </Row>
 
-        <Row style={{ justifyContent: "center", position: "relative", marginTop: "20px" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
+        {/* Bottom Button */}
+        <Row className="justify-content-center mt-4">
+          <Button variant="primary" href={pdf} target="_blank">
             <AiOutlineDownload />
-            &nbsp;Download Sahil's Resume
+            &nbsp;Download Resume
           </Button>
         </Row>
+
       </Container>
     </div>
   );
