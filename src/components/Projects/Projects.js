@@ -28,7 +28,7 @@ function Projects() {
               title="Food delivery website for local vendors"
               description="A Food delivery website for local vendors built with HTML, CSS, and JavaScript for those vendors which are not able to onboard on online ."
               ghLink="https://github.com/sahilahamaddev/Quick-food-for-local-vendor"
-              demoLink=""
+              demoLink="https://localvendors.netlify.app"
             />
           </Col>
 
@@ -39,7 +39,7 @@ function Projects() {
               title="Canteen management system"
               description="Canteen management system built with C++ for managing food orders and inventory."
               ghLink="https://github.com/sahilahamaddev/canteen-management-system"
-              demoLink="https://blogs.soumya-jit.tech/"
+              demoLink=""
             />
           </Col>
 
