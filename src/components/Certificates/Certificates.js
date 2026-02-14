@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 function Certificates() {
   const certificates = [
     {
-      title: "React Development Certificate",
+      title: "React Development Certificate.",
       description: "Completed advanced React.js development course with hands-on projects.",
       img: process.env.PUBLIC_URL + "/React.jpg",
     },
     {
-      title: "AI Workshop Certificate",
+      title: "AI Workshop Certificate.",
       description: "Participated in cutting-edge AI workshop with real-world applications.",
       img: process.env.PUBLIC_URL + "/cert1.jpg",
     },
