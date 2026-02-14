@@ -594,6 +594,46 @@ button:focus {
   overflow: hidden !important;
   outline: 2.2px solid rgba(197, 115, 230, 0.883) !important;
 }
+.tech-col {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.tech-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  width: 140px;
+  height: 160px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  transition: 0.4s ease-in-out;
+}
+
+.tech-card:hover {
+  box-shadow: 0 0 40px #00ffff, 0 0 80px #00ffff55;
+  transform: translateY(-10px);
+}
+
+.tech-inner img {
+  width: 50px;
+  margin-bottom: 10px;
+  transition: transform 0.4s ease;
+}
+
+.tech-inner p {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+.tech-card:hover img {
+  transform: rotateY(180deg) scale(1.2);
+}
 .tech-icon-images {
   height: 1.6rem;
   line-height: 1.6 !important;
@@ -758,4 +798,44 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+.modern-about-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 35px rgba(108, 99, 255, 0.25);
+  transition: all 0.4s ease-in-out;
+  color: white;
+}
+
+.modern-about-card:hover {
+  box-shadow: 0 15px 45px rgba(108, 99, 255, 0.45);
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.highlight {
+  color: #9b7eac;
+  font-weight: 600;
+}
+
+.about-list {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.about-list li {
+  margin: 8px 0;
+}
+
+.about-quote {
+  margin-top: 25px;
+  font-style: italic;
+  color: #9b7eac;
 }
