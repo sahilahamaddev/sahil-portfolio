@@ -29,7 +29,7 @@ scalable, high-performance web applications with intuitive user experiences.
 - Clean & professional design
 
 ## 🌐 Live Demo
-(Deployed on Vercel)
+(https://sahil-portfolio-lake.vercel.app)
 
 ## 📄 Resume
 Available inside the portfolio
